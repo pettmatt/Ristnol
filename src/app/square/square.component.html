@@ -1,0 +1,7 @@
+<!--square-komponentin ainoa tehtävä on valuen esittäminen.
+Kaikki sovelluslogiikka on board -komponentissa
+[ngClass]="{'red' : index === line[0] || index === line[1] || index === line[2] }"-->
+<button class="btn btn-info"
+[ngClass]="{'highlight': index === line[0] || index === line[1] || index === line[2]}">
+  {{value}}
+</button>

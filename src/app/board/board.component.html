@@ -1,0 +1,33 @@
+<!-- (click) on event binding. Templaatin event on bindattu luokan metodiin-->
+<div class="col-md-12 text-center">
+    <button class="btn btn-primary" (click)="newGame()">Uusi peli</button>
+    <button class="btn btn-danger" (click)="nullScores()">Nollaa pisteet</button>
+</div>
+
+<p *ngIf="!winner && moves < 9">Vuorossa pelaaja: {{player}} </p>
+
+<!-- Kappale näytetään vain jos *ngIf='winner' on true eli winner on olemassa-->
+<p class="text-warning" *ngIf="winner">
+    Pelaaja {{ winner }} voitti pelin!
+</p>
+
+<p class="text-warning" *ngIf="moves == 9 && !winner">
+    Peli päättyi tasapeliin!
+</p>
+
+<p>{{ oScores }} : {{ xScores }}</p>
+
+<!--peli tehdään tämän divin sisälle. Sisällä olevat elementit on laitettu CSS-gridiin.-->
+<div class="board row justify-content-center">
+    <!--*NgFor toistaa  app-square -elementtiä niin kauan kuin
+    squares-taulukossa on alkioita, eli 9 kertaa-->
+    <!-- val bindataan square-komponentin value-muuttujaan
+        se viittaa siis squares-taulukon alkoihin-->
+    <!-- taulukon jokaisen alkion index otetaan talteen i -muuttujaan
+    joka välitetään makeMove(i) -metodille. Event binding: click -event
+    bindataan makeMove(i) -metodiin -->
+    <app-square *ngFor="let val of squares; let i = index;"
+                [value]="val" [line]="line" [index]="i"
+                (click)="makeMove(i)">
+    </app-square>
+</div>

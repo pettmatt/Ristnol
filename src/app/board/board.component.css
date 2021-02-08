@@ -1,0 +1,18 @@
+.board {
+    display: grid;
+    grid-template-rows: 60px 60px 60px;
+    grid-template-columns: 60px 60px 60px;
+}
+
+button {
+    margin: 0 5px;
+}
+
+app-square {
+  margin: 2px;
+}
+
+p {
+    padding: 0px 5px;
+    margin: 10px
+}
